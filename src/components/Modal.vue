@@ -29,7 +29,7 @@ defineEmits(['close']);
         <div class="description">
           <p v-if="data.breed">Порода: {{ data.breed }}</p>
           <p v-if="data.origin">Происхождение: {{ data.origin }}</p>
-          <p v-if="data.url">Больше информации: {{ data.url }}</p>
+          <p v-if="data.url">Больше информации: <a :href="data.url" target="_blank">{{ data.url }}</a></p>
           <p v-if="data.meta.body_type">Тип тела: {{ data.meta.body_type }}</p>
           <p v-if="data.meta.coat_type_and_length">Тип и длинна шерсти: {{ data.meta.coat_type_and_length }}</p>
           <p v-if="data.meta.coat_pattern">Окрас: {{ data.meta.coat_pattern }}</p>

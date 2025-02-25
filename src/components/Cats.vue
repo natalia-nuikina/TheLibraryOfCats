@@ -85,6 +85,11 @@ const getPic = (cat: Cat): string => (cat.meta.img_src_set ? cat.meta.img_src_se
     <main class="body">
       <div class="filters">
         <div class="filter">
+          <div>Введите любое слово для поиска совпадений среди котиков:</div>
+          <input v-model="currText" @keyup="catsStore.updateCats('currText', currText)">
+        </div>
+
+        <div class="filter">
           <div>Выберете происхождение котиков:</div>
           <select v-model="currOrigin" @change="catsStore.updateCats('origin', currOrigin)">
             <option value=''>Не выбрано</option>
@@ -123,11 +128,6 @@ const getPic = (cat: Cat): string => (cat.meta.img_src_set ? cat.meta.img_src_se
             </option>
           </select>
         </div>
-
-        <div class="filter">
-          <div>Введите любое слово для поиска совпадений среди котиков:</div>
-          <input v-model="currText" @keyup="catsStore.updateCats('currText', currText)">
-        </div>
       </div>
 
       <div class="cats" v-if="catsStore.err.length === 0">
@@ -138,7 +138,7 @@ const getPic = (cat: Cat): string => (cat.meta.img_src_set ? cat.meta.img_src_se
               <h3>{{ cat.breed }}</h3>
               <div>Происхождение: {{ cat.origin }}</div>
               <div>Тип тела: {{ cat.meta.body_type }}</div>
-              <div>Тип тела: {{ cat.meta.coat_pattern }}</div>
+              <div>Окрас: {{ cat.meta.coat_pattern }}</div>
             </div>
           </div>
         </div>
